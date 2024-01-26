@@ -1,4 +1,4 @@
-import { useState, useRef, memo } from "react";
+import { useState } from "react";
 import Edit from "./edit";
 import "./App.css";
 
