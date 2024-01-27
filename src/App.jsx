@@ -1,21 +1,12 @@
 import { useState } from "react";
 import Edit from "./edit";
+import Items from "./items";
+import Button from "./button";
 import "./App.css";
 
 function App() {
   const [isEdit, setIsEdit] = useState(false);
   const [editMemo, setEditMemo] = useState(0);
-
-  const keys = Object.keys(localStorage);
-  const sorted_keys = keys.toSorted((a, b) => a - b);
-
-  const items = sorted_keys.map((key) => {
-    return (
-      <li onClick={() => handleEdit(key)} key={key}>
-        {localStorage.getItem(key).split("\n")[0]}
-      </li>
-    );
-  });
 
   function handleAdd() {
     const uniqueKey = Date.now();
@@ -46,9 +37,8 @@ function App() {
   return (
     <div>
       <div>
-        <ul className="index">{items}</ul>
-        <button onClick={handleAdd}>+</button>
-        <button onClick={handleClear}>clear</button>
+        <Items handleEdit={handleEdit} />
+        <Button handleAdd={handleAdd} handleClear={handleClear} />
       </div>
 
       <div className="App">
