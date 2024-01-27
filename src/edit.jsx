@@ -1,7 +1,12 @@
 import { useState } from "react";
 
-export default function Edit({ onSubmit, onDelete, memo_key, memo_value }) {
-  const [text, setText] = useState(memo_value);
+export default function Edit({
+  handleSave,
+  handleDelete,
+  item_key,
+  item_value,
+}) {
+  const [text, setText] = useState(item_value);
 
   return (
     <div>
@@ -13,13 +18,13 @@ export default function Edit({ onSubmit, onDelete, memo_key, memo_value }) {
           cols="30"
           rows="10"
         >
-          {memo_value}
+          {item_value}
         </textarea>
         <button
           type="submit"
           onClick={(e) => {
             e.preventDefault(e);
-            onSubmit(text);
+            handleSave(text);
           }}
         >
           編集
@@ -27,7 +32,7 @@ export default function Edit({ onSubmit, onDelete, memo_key, memo_value }) {
         <button
           type="submit"
           onClick={() => {
-            onDelete(memo_key);
+            handleDelete(item_key);
           }}
         >
           削除

@@ -6,17 +6,17 @@ import "./App.css";
 
 function App() {
   const [isEdit, setIsEdit] = useState(false);
-  const [editMemo, setEditMemo] = useState(0);
+  const [selectedItem, setSelectedItem] = useState(0);
 
   function handleAdd() {
     const uniqueKey = Date.now();
     localStorage.setItem(uniqueKey, "新規メモ");
-    setEditMemo(uniqueKey);
+    setSelectedItem(uniqueKey);
     setIsEdit(true);
   }
 
   function handleEdit(key) {
-    setEditMemo(key);
+    setSelectedItem(key);
     setIsEdit(true);
   }
 
@@ -26,7 +26,7 @@ function App() {
   }
 
   function handleSave(text) {
-    localStorage.setItem(editMemo, text);
+    localStorage.setItem(selectedItem, text);
     setIsEdit(true);
   }
 
@@ -44,11 +44,11 @@ function App() {
       <div className="App">
         {isEdit && (
           <Edit
-            onSubmit={handleSave}
-            onDelete={handleDelete}
-            memo_key={editMemo}
-            memo_value={localStorage.getItem(editMemo)}
-            key={editMemo}
+            handleSave={handleSave}
+            handleDelete={handleDelete}
+            item_key={selectedItem}
+            item_value={localStorage.getItem(selectedItem)}
+            key={selectedItem}
           />
         )}
       </div>
