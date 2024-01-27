@@ -26,7 +26,12 @@ function App() {
   }
 
   function handleSave(text) {
-    localStorage.setItem(selectedItem, text);
+    if (text.trim() === "") {
+      localStorage.setItem(selectedItem, "新規メモ");
+    } else {
+      localStorage.setItem(selectedItem, text);
+    }
+
     setIsEdit(true);
   }
 
