@@ -5,55 +5,50 @@ import Button from "./button";
 import "./App.css";
 
 function App() {
-  const [isEdit, setIsEdit] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(0);
+  const [selectedKey, setSelectedKey] = useState(null);
 
   function handleAdd() {
     const uniqueKey = Date.now();
     localStorage.setItem(uniqueKey, "新規メモ");
-    handleEdit(uniqueKey);
-  }
-
-  function handleEdit(key) {
-    setSelectedItem(key);
-    setIsEdit(true);
+    setSelectedKey(uniqueKey);
   }
 
   function handleDelete(key) {
     localStorage.removeItem(key);
-    setIsEdit(false);
+    setSelectedKey(null);
   }
 
   function handleSave(text) {
-    localStorage.removeItem(selectedItem);
+    localStorage.removeItem(selectedKey);
     const uniqueKey = Date.now();
     if (text.trim() === "") {
       localStorage.setItem(uniqueKey, "新規メモ");
     } else {
       localStorage.setItem(uniqueKey, text);
     }
-    handleEdit(uniqueKey);
+    setSelectedKey(uniqueKey);
   }
 
   function handleClear() {
     localStorage.clear();
+    setSelectedKey(null);
   }
 
   return (
     <div className="container">
       <div className="index">
-        <Items handleEdit={handleEdit} />
+        <Items handleEdit={setSelectedKey} />
         <Button handleAdd={handleAdd} handleClear={handleClear} />
       </div>
 
       <div className="edit">
-        {isEdit && (
+        {selectedKey && (
           <Edit
             handleSave={handleSave}
             handleDelete={handleDelete}
-            item_key={selectedItem}
-            item_value={localStorage.getItem(selectedItem)}
-            key={selectedItem}
+            item_key={selectedKey}
+            item_value={localStorage.getItem(selectedKey)}
+            key={selectedKey}
           />
         )}
       </div>
