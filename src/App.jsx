@@ -40,13 +40,13 @@ function App() {
   }
 
   return (
-    <div>
-      <div>
+    <div className="container">
+      <div className="index">
         <Items handleEdit={handleEdit} />
         <Button handleAdd={handleAdd} handleClear={handleClear} />
       </div>
 
-      <div className="App">
+      <div className="edit">
         {isEdit && (
           <Edit
             handleSave={handleSave}

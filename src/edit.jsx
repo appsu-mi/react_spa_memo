@@ -9,34 +9,36 @@ export default function Edit({
   const [text, setText] = useState(item_value);
 
   return (
-    <div>
+    <div className="edit-container">
       <form>
         <textarea
           onChange={(e) => setText(e.target.value)}
-          name=""
-          id=""
-          cols="30"
-          rows="10"
+          className="edit-area"
+          autoFocus={true}
         >
           {item_value}
         </textarea>
-        <button
-          type="submit"
-          onClick={(e) => {
-            e.preventDefault(e);
-            handleSave(text);
-          }}
-        >
-          編集
-        </button>
-        <button
-          type="submit"
-          onClick={() => {
-            handleDelete(item_key);
-          }}
-        >
-          削除
-        </button>
+        <div className="edit-button">
+          <button
+            className="save-button"
+            type="submit"
+            onClick={(e) => {
+              e.preventDefault(e);
+              handleSave(text);
+            }}
+          >
+            編集
+          </button>
+          <button
+            className="delete-button"
+            type="submit"
+            onClick={() => {
+              handleDelete(item_key);
+            }}
+          >
+            削除
+          </button>
+        </div>
       </form>
     </div>
   );

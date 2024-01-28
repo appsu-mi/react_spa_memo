@@ -4,7 +4,7 @@ export default function Items({ handleEdit }) {
 
   const items = sorted_keys.map((key) => {
     return (
-      <li onClick={() => handleEdit(key)} key={key}>
+      <li className="item" onClick={() => handleEdit(key)} key={key}>
         {localStorage.getItem(key).split("\n")[0]}
       </li>
     );
