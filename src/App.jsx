@@ -11,8 +11,7 @@ function App() {
   function handleAdd() {
     const uniqueKey = Date.now();
     localStorage.setItem(uniqueKey, "新規メモ");
-    setSelectedItem(uniqueKey);
-    setIsEdit(true);
+    handleEdit(uniqueKey);
   }
 
   function handleEdit(key) {
@@ -26,13 +25,14 @@ function App() {
   }
 
   function handleSave(text) {
+    localStorage.removeItem(selectedItem);
+    const uniqueKey = Date.now();
     if (text.trim() === "") {
-      localStorage.setItem(selectedItem, "新規メモ");
+      localStorage.setItem(uniqueKey, "新規メモ");
     } else {
-      localStorage.setItem(selectedItem, text);
+      localStorage.setItem(uniqueKey, text);
     }
-
-    setIsEdit(true);
+    handleEdit(uniqueKey);
   }
 
   function handleClear() {
