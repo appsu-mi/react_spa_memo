@@ -41,7 +41,7 @@ ul {
   width: 30%;
 }
 .add-button,
-.clear-button  {
+.clear-button {
   background: #5ec6ec;
   padding: 5px 10px;
   margin-right: 10px;
@@ -57,7 +57,7 @@ ul {
 
 /* items */
 .item {
-  border-bottom: 	#CCCCCC solid 1px;
+  border-bottom: #cccccc solid 1px;
   margin-bottom: 10px;
 }
 .item:hover {
