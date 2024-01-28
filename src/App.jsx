@@ -4,7 +4,7 @@ import Items from "./items";
 import Button from "./button";
 import "./App.css";
 
-function App() {
+export default function App() {
   const [selectedKey, setSelectedKey] = useState(null);
 
   function handleAdd() {
@@ -55,5 +55,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

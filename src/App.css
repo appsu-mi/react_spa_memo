@@ -2,6 +2,7 @@ button {
   border-radius: 5px;
   border: solid 1px;
   font-size: 1em;
+  font-weight: bold;
 }
 button:hover {
   cursor: pointer;
@@ -52,7 +53,6 @@ ul {
   background: #5ec6ec;
   color: #fff;
   padding: 10px;
-	font-weight: bold;
 }
 
 /* items */

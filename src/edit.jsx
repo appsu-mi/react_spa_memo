@@ -12,9 +12,9 @@ export default function Edit({
     <div className="edit-container">
       <form>
         <textarea
-          onChange={(e) => setText(e.target.value)}
           className="edit-area"
           autoFocus={true}
+          onChange={(e) => setText(e.target.value)}
         >
           {item_value}
         </textarea>
