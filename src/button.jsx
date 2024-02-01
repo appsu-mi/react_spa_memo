@@ -3,7 +3,7 @@ import { useLogin } from "./login_context.jsx";
 export default function Button({ handleAdd, handleClear }) {
   const { isLogin, handleLogin } = useLogin();
 
-  const test = isLogin ? (
+  const buttons = isLogin ? (
     <div>
       <button className="add-button" onClick={handleAdd}>
         +
@@ -16,5 +16,5 @@ export default function Button({ handleAdd, handleClear }) {
     <div></div>
   );
 
-  return <div>{test}</div>;
+  return <div>{buttons}</div>;
 }

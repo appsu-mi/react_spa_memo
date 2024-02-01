@@ -9,7 +9,7 @@ export default function Edit({
 }) {
   const [text, setText] = useState(item_value);
   const { isLogin, handleLogin } = useLogin();
-  const test = isLogin ? (
+  const buttons = isLogin ? (
     <div className="edit-button">
       <button
         className="save-button"
@@ -45,7 +45,7 @@ export default function Edit({
         >
           {item_value}
         </textarea>
-        {test}
+        {buttons}
       </form>
     </div>
   );
