@@ -38,9 +38,9 @@ export default function App() {
 
   return (
     <LoginContextProvider>
-      <div>
+      <div className="container">
         <LoginButton />
-        <div className="container">
+        <div className="flex-container">
           <div className="index">
             <Items handleEdit={setSelectedKey} />
             <Button handleAdd={handleAdd} handleClear={handleClear} />
