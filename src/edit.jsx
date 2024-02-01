@@ -8,7 +8,8 @@ export default function Edit({
   item_value,
 }) {
   const [text, setText] = useState(item_value);
-  const { isLogin, handleLogin } = useLogin();
+  const { isLogin } = useLogin();
+
   const buttons = isLogin ? (
     <div className="edit-button">
       <button

@@ -1,7 +1,7 @@
 import { useLogin } from "./login_context.jsx";
 
 export default function Button({ handleAdd, handleClear }) {
-  const { isLogin, handleLogin } = useLogin();
+  const { isLogin } = useLogin();
 
   const buttons = isLogin ? (
     <div>
