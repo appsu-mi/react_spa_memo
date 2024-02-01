@@ -2,6 +2,7 @@ import { useState } from "react";
 import Edit from "./edit";
 import Items from "./items";
 import Button from "./button";
+import { LoginContextProvider } from "./login_context.jsx";
 import "./App.css";
 
 export default function App() {
@@ -35,23 +36,25 @@ export default function App() {
   }
 
   return (
-    <div className="container">
-      <div className="index">
-        <Items handleEdit={setSelectedKey} />
-        <Button handleAdd={handleAdd} handleClear={handleClear} />
-      </div>
+    <LoginContextProvider>
+      <div className="container">
+        <div className="index">
+          <Items handleEdit={setSelectedKey} />
+          <Button handleAdd={handleAdd} handleClear={handleClear} />
+        </div>
 
-      <div className="edit">
-        {selectedKey && (
-          <Edit
-            handleSave={handleSave}
-            handleDelete={handleDelete}
-            item_key={selectedKey}
-            item_value={localStorage.getItem(selectedKey)}
-            key={selectedKey}
-          />
-        )}
+        <div className="edit">
+          {selectedKey && (
+            <Edit
+              handleSave={handleSave}
+              handleDelete={handleDelete}
+              item_key={selectedKey}
+              item_value={localStorage.getItem(selectedKey)}
+              key={selectedKey}
+            />
+          )}
+        </div>
       </div>
-    </div>
+    </LoginContextProvider>
   );
 }
