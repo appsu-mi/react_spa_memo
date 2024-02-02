@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 const LoginContext = createContext();
 
 export const LoginContextProvider = ({ children }) => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   function handleLogin() {
     isLogin === false ? setIsLogin(true) : setIsLogin(false);
@@ -15,4 +15,5 @@ export const LoginContextProvider = ({ children }) => {
     </LoginContext.Provider>
   );
 };
-export const useLogin = () => useContext(LoginContext);
+
+export const useLoginStatus = () => useContext(LoginContext);

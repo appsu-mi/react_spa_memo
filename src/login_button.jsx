@@ -1,7 +1,7 @@
-import { useLogin } from "./login_context.jsx";
+import { useLoginStatus } from "./login_context.jsx";
 
 export default function LoginButton() {
-  const { isLogin, handleLogin } = useLogin();
+  const { isLogin, handleLogin } = useLoginStatus();
   const loginStatus = isLogin ? "ログアウト" : "ログイン";
 
   return (

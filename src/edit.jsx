@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLogin } from "./login_context.jsx";
+import { useLoginStatus } from "./login_context.jsx";
 
 export default function Edit({
   handleSave,
@@ -8,7 +8,7 @@ export default function Edit({
   item_value,
 }) {
   const [text, setText] = useState(item_value);
-  const { isLogin } = useLogin();
+  const { isLogin } = useLoginStatus();
 
   const buttons = isLogin ? (
     <div className="edit-button">
