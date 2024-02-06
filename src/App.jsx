@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import Edit from "./Edit";
 import Items from "./Items";
 import Button from "./Button";
@@ -8,7 +9,7 @@ export default function App() {
   const [selectedKey, setSelectedKey] = useState(null);
 
   function handleAdd() {
-    const uniqueKey = Date.now();
+    const uniqueKey = uuidv4();
     localStorage.setItem(uniqueKey, "新規メモ");
     setSelectedKey(uniqueKey);
   }
@@ -20,7 +21,7 @@ export default function App() {
 
   function handleSave(text) {
     localStorage.removeItem(selectedKey);
-    const uniqueKey = Date.now();
+    const uniqueKey = uuidv4();
     if (text.trim() === "") {
       localStorage.setItem(uniqueKey, "新規メモ");
     } else {
