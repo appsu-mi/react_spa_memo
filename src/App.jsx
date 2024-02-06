@@ -46,8 +46,8 @@ export default function App() {
           <Edit
             handleSave={handleSave}
             handleDelete={handleDelete}
-            item_key={selectedKey}
-            item_value={localStorage.getItem(selectedKey)}
+            itemKey={selectedKey}
+            itemValue={localStorage.getItem(selectedKey)}
             key={selectedKey}
           />
         )}

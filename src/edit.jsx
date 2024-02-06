@@ -3,10 +3,10 @@ import { useState } from "react";
 export default function Edit({
   handleSave,
   handleDelete,
-  item_key,
-  item_value,
+  itemKey,
+  itemValue,
 }) {
-  const [text, setText] = useState(item_value);
+  const [text, setText] = useState(itemValue);
 
   return (
     <div className="edit-container">
@@ -16,7 +16,7 @@ export default function Edit({
           autoFocus={true}
           onChange={(e) => setText(e.target.value)}
         >
-          {item_value}
+          {itemValue}
         </textarea>
         <div className="edit-button">
           <button
@@ -33,7 +33,7 @@ export default function Edit({
             className="delete-button"
             type="submit"
             onClick={() => {
-              handleDelete(item_key);
+              handleDelete(itemKey);
             }}
           >
             削除
