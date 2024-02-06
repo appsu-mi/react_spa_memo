@@ -1,11 +1,6 @@
 import { useState } from "react";
 
-export default function Edit({
-  handleSave,
-  handleDelete,
-  itemKey,
-  itemValue,
-}) {
+export default function Edit({ handleSave, handleDelete, itemKey, itemValue }) {
   const [text, setText] = useState(itemValue);
 
   return (
