@@ -7,21 +7,33 @@ import "./App.css";
 
 export default function App() {
   const [selectedKey, setSelectedKey] = useState(null);
+  const [isError, setIsError] = useState(false);
+
+  const errorMessage = isError ? (
+    <div className="error-blank">内容が空のようです</div>
+  ) : null;
 
   function handleAdd() {
     const uniqueKey = uuidv4();
     localStorage.setItem(uniqueKey, "新規メモ");
     setSelectedKey(uniqueKey);
+    setIsError(false);
   }
 
   function handleDelete(key) {
     localStorage.removeItem(key);
     setSelectedKey(null);
+    setIsError(false);
+  }
+
+  function handleEdit(key) {
+    setSelectedKey(key);
+    setIsError(false);
   }
 
   function handleSave(text) {
     if (text.trim() === "") {
-      localStorage.setItem(selectedKey, "新規メモ");
+      setIsError(true);
     } else {
       localStorage.setItem(selectedKey, text);
     }
@@ -30,16 +42,18 @@ export default function App() {
   function handleClear() {
     localStorage.clear();
     setSelectedKey(null);
+    setIsError(false);
   }
 
   return (
     <div className="container">
       <div className="index">
-        <Items handleEdit={setSelectedKey} />
+        <Items handleEdit={handleEdit} />
         <Button handleAdd={handleAdd} handleClear={handleClear} />
       </div>
 
       <div className="edit">
+        {errorMessage}
         {selectedKey && (
           <Edit
             handleSave={handleSave}
