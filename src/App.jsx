@@ -20,14 +20,11 @@ export default function App() {
   }
 
   function handleSave(text) {
-    localStorage.removeItem(selectedKey);
-    const uniqueKey = uuidv4();
     if (text.trim() === "") {
-      localStorage.setItem(uniqueKey, "新規メモ");
+      localStorage.setItem(selectedKey, "新規メモ");
     } else {
-      localStorage.setItem(uniqueKey, text);
+      localStorage.setItem(selectedKey, text);
     }
-    setSelectedKey(uniqueKey);
   }
 
   function handleClear() {
