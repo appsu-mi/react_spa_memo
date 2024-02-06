@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Edit from "./edit";
-import Items from "./items";
-import Button from "./button";
+import Edit from "./Edit";
+import Items from "./Items";
+import Button from "./Button";
 import "./App.css";
 
 export default function App() {
