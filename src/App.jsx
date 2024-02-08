@@ -53,10 +53,11 @@ export default function App() {
         <LoginButton />
         <div className="flex-container">
           <div className="index">
-            <Items handleEdit={setSelectedKey} />
+            <Items handleEdit={handleEdit} />
             <Button handleAdd={handleAdd} handleClear={handleClear} />
           </div>
           <div className="edit">
+            {errorMessage}
             {selectedKey && (
               <Edit
                 handleSave={handleSave}
