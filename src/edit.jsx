@@ -1,13 +1,8 @@
 import { useState } from "react";
-import { useLoginStatus } from "./login_context.jsx";
+import { useLoginStatus } from "./Login_context.jsx";
 
-export default function Edit({
-  handleSave,
-  handleDelete,
-  item_key,
-  item_value,
-}) {
-  const [text, setText] = useState(item_value);
+export default function Edit({ handleSave, handleDelete, itemKey, itemValue }) {
+  const [text, setText] = useState(itemValue);
   const { isLogin } = useLoginStatus();
 
   const buttons = isLogin ? (
@@ -26,7 +21,7 @@ export default function Edit({
         className="delete-button"
         type="submit"
         onClick={() => {
-          handleDelete(item_key);
+          handleDelete(itemKey);
         }}
       >
         削除
@@ -44,7 +39,7 @@ export default function Edit({
           autoFocus={true}
           onChange={(e) => setText(e.target.value)}
         >
-          {item_value}
+          {itemValue}
         </textarea>
         {buttons}
       </form>
