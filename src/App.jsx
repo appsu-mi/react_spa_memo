@@ -13,7 +13,9 @@ export default function App() {
 
   const errorMessage = isError ? (
     <div className="error-blank">内容が空のようです</div>
-  ) : null;
+  ) : (
+    <></>
+  );
 
   function handleAdd() {
     const uniqueKey = uuidv4();
