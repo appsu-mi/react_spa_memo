@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import Edit from "./Edit";
 import Items from "./Items";
 import Button from "./Button";
-import LoginButton from "./Login_button";
-import { LoginContextProvider } from "./Login_context.jsx";
+import LoginButton from "./LoginButton";
+import { LoginContextProvider } from "./LoginContext.jsx";
 import "./App.css";
 
 export default function App() {
