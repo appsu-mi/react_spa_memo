@@ -28,7 +28,7 @@ export default function Edit({ handleSave, handleDelete, itemKey, itemValue }) {
       </button>
     </div>
   ) : (
-    <div></div>
+    <></>
   );
 
   return (

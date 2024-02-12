@@ -13,8 +13,8 @@ export default function Button({ handleAdd, handleClear }) {
       </button>
     </div>
   ) : (
-    <div></div>
+    <></>
   );
 
-  return <div>{buttons}</div>;
+  return <>{buttons}</>;
 }
