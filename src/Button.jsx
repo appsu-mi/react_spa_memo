@@ -1,5 +1,9 @@
+import { useLoginStatus } from "./LoginContext.jsx";
+
 export default function Button({ handleAdd, handleClear }) {
-  return (
+  const { isLogin } = useLoginStatus();
+
+  const buttons = isLogin ? (
     <div>
       <button className="add-button" onClick={handleAdd}>
         +
@@ -8,5 +12,9 @@ export default function Button({ handleAdd, handleClear }) {
         clear
       </button>
     </div>
+  ) : (
+    <></>
   );
+
+  return <>{buttons}</>;
 }
