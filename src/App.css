@@ -12,9 +12,11 @@ ul {
   list-style: none;
 }
 .container {
+  padding: 100px;
+}
+.flex-container {
   display: flex;
   justify-content: space-between;
-  padding: 100px;
 }
 .index {
   width: 35%;
@@ -68,4 +70,13 @@ ul {
 .item:hover {
   background-color: aliceblue;
   cursor: pointer;
+}
+
+/* login-button */
+.login-button-container {
+  text-align: right;
+  margin-bottom: 20px;
+}
+.login-button {
+  padding: 10px 40px;
 }

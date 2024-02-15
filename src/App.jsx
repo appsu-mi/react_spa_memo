@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import Edit from "./Edit";
 import Items from "./Items";
 import Button from "./Button";
+import LoginButton from "./LoginButton";
+import { LoginContextProvider } from "./LoginContext.jsx";
 import "./App.css";
 
 export default function App() {
@@ -11,7 +13,9 @@ export default function App() {
 
   const errorMessage = isError ? (
     <div className="error-blank">内容が空のようです</div>
-  ) : null;
+  ) : (
+    <></>
+  );
 
   function handleAdd() {
     const uniqueKey = uuidv4();
@@ -46,24 +50,28 @@ export default function App() {
   }
 
   return (
-    <div className="container">
-      <div className="index">
-        <Items handleEdit={handleEdit} />
-        <Button handleAdd={handleAdd} handleClear={handleClear} />
+    <LoginContextProvider>
+      <div className="container">
+        <LoginButton />
+        <div className="flex-container">
+          <div className="index">
+            <Items handleEdit={handleEdit} />
+            <Button handleAdd={handleAdd} handleClear={handleClear} />
+          </div>
+          <div className="edit">
+            {errorMessage}
+            {selectedKey && (
+              <Edit
+                handleSave={handleSave}
+                handleDelete={handleDelete}
+                itemKey={selectedKey}
+                itemValue={localStorage.getItem(selectedKey)}
+                key={selectedKey}
+              />
+            )}
+          </div>
+        </div>
       </div>
-
-      <div className="edit">
-        {errorMessage}
-        {selectedKey && (
-          <Edit
-            handleSave={handleSave}
-            handleDelete={handleDelete}
-            itemKey={selectedKey}
-            itemValue={localStorage.getItem(selectedKey)}
-            key={selectedKey}
-          />
-        )}
-      </div>
-    </div>
+    </LoginContextProvider>
   );
 }
